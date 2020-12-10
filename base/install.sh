@@ -7,16 +7,16 @@
 
 # 调整包路径
 mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
-curl -fLo /etc/pacman.d/mirrorlist \
-    https://github.com/17696710501/archlinux-project/tree/main/base-config/mirrorlist
+cp ./mirrorlist /etc/pacman.d/mirrorlist
 
 # 更新系统时间
 timedatectl set-ntp true
 
 # 安装软件包
 pacstrap /mnt base linux linux-firmware \
-    base-devel  neovim man-db man-pages \
-    zsh zsh-syntax-highlighting dhcpcd
+    base-devel neovim man-db man-pages \
+    zsh zsh-syntax-highlighting dhcpcd \
+    grub efibootmgr
 
 # 配置 Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -31,7 +31,13 @@ hwclock --systohc
 # 本地化 生成 locale 信息
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen
+
 locale-gen
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
+
+echo "LANG=en_US.UTF-8" >> /etc/locale.conf
+echo "Arch" >> /etc/hostname
+echo "127.0.0.1\tlocalhost\t::1\tlocalhost\n127.0.1.1\tArch.localdomain\tArch" >> /etc/hosts
+
+# 请使用 passwd 手动修改 root 密码
 
 exit 0
