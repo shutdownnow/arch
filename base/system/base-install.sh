@@ -6,7 +6,9 @@
 # 2、手动建立硬盘分区，并挂载在 /mnt 目录下
 
 # 调整包路径
-
+mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
+curl -fLo /etc/pacman.d/mirrorlist \
+    https://github.com/17696710501/archlinux-project/tree/main/base-config/mirrorlist
 
 # 更新系统时间
 timedatectl set-ntp true
