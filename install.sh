@@ -21,6 +21,9 @@ pacstrap /mnt base linux linux-firmware \
 # 配置 Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
 
+mv /mnt/etc/default/grub /mnt/etc/default/grub_bac
+cp ./grub /mnt/etc/default/grub
+
 # 进入新安装的系统
 arch-chroot /mnt
 
@@ -38,6 +41,10 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 echo "Arch" >> /etc/hostname
 echo "127.0.0.1\tlocalhost\t::1\tlocalhost\n127.0.1.1\tArch.localdomain\tArch" >> /etc/hosts
 
-# 请使用 passwd 手动修改 root 密码
+# 安装 grub 并生成配置
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=Arch
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# 请使用 passwd 手动修改 root 密码，并重启
 
 exit 0
