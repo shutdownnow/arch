@@ -16,7 +16,7 @@ timedatectl set-ntp true
 pacstrap /mnt base linux linux-firmware \
     base-devel neovim man-db man-pages \
     zsh zsh-syntax-highlighting dhcpcd \
-    grub efibootmgr
+    neofetch grub efibootmgr
 
 # 配置 Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
