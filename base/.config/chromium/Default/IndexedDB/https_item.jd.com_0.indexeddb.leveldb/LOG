@@ -1,0 +1,15 @@
+2020/12/12-12:27:11.042 2178 Reusing MANIFEST /home/nobume/.config/chromium/Default/IndexedDB/https_item.jd.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/12/12-12:27:11.042 2178 Recovering log #4
+2020/12/12-12:27:11.042 2178 Reusing old log /home/nobume/.config/chromium/Default/IndexedDB/https_item.jd.com_0.indexeddb.leveldb/000004.log 
+2020/12/12-12:27:15.209 2178 Level-0 table #8: started
+2020/12/12-12:27:15.217 2178 Level-0 table #8: 1282 bytes OK
+2020/12/12-12:27:15.221 2178 Delete type=0 #4
+2020/12/12-12:27:15.221 2178 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2020/12/12-12:27:15.221 2178 Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x01\x01\x02\x01\x10\x003\x00A\x00B\x009\x00D\x002\x003\x00F\x007\x00A\x004\x00B\x003\x00C\x009\x00B' @ 85 : 1
+2020/12/12-12:27:15.221 2178 Compacting 1@1 + 1@2 files
+2020/12/12-12:27:15.224 2178 Generated table #9@1: 19 keys, 692 bytes
+2020/12/12-12:27:15.224 2178 Compacted 1@1 + 1@2 files => 692 bytes
+2020/12/12-12:27:15.227 2178 compacted to: files[ 0 0 1 0 0 0 0 ]
+2020/12/12-12:27:15.227 2178 Delete type=2 #8
+2020/12/12-12:27:15.227 2178 Delete type=2 #5
+2020/12/12-12:27:15.227 2178 Manual compaction at level-1 from '\x00\x01\x01\x02\x01\x10\x003\x00A\x00B\x009\x00D\x002\x003\x00F\x007\x00A\x004\x00B\x003\x00C\x009\x00B' @ 85 : 1 .. (end); will stop at (end)

@@ -1,0 +1,5 @@
+2020/12/12-09:45:48.286 5a46 Reusing MANIFEST /home/nobume/.config/chromium/Default/IndexedDB/https_www.google.com.hk_0.indexeddb.leveldb/MANIFEST-000001
+2020/12/12-09:45:52.428 5a46 Level-0 table #5: started
+2020/12/12-09:45:52.438 5a46 Level-0 table #5: 1111 bytes OK
+2020/12/12-09:45:52.444 5a46 Delete type=0 #3
+2020/12/12-09:45:52.444 5a46 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

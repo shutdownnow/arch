@@ -1,0 +1,5 @@
+2020/12/08-20:53:48.355 483 Reusing MANIFEST /home/nobume/.config/chromium/Default/IndexedDB/https_message.bilibili.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/12/08-20:53:53.152 481 Level-0 table #5: started
+2020/12/08-20:53:53.161 481 Level-0 table #5: 21074 bytes OK
+2020/12/08-20:53:53.166 481 Delete type=0 #3
+2020/12/08-20:53:53.167 481 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

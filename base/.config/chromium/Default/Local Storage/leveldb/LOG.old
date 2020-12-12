@@ -1,0 +1,42 @@
+2020/12/12-11:49:54.504 306 Reusing MANIFEST /home/nobume/.config/chromium/Default/Local Storage/leveldb/MANIFEST-000001
+2020/12/12-11:49:54.505 306 Recovering log #246
+2020/12/12-11:49:54.505 306 Reusing old log /home/nobume/.config/chromium/Default/Local Storage/leveldb/000246.log 
+2020/12/12-11:58:05.142 323 Level-0 table #250: started
+2020/12/12-11:58:05.151 323 Level-0 table #250: 158823 bytes OK
+2020/12/12-11:58:05.155 323 Delete type=0 #246
+2020/12/12-12:27:54.677 dc7 Level-0 table #252: started
+2020/12/12-12:27:54.686 dc7 Level-0 table #252: 81883 bytes OK
+2020/12/12-12:27:54.690 dc7 Delete type=0 #249
+2020/12/12-12:30:05.132 2178 Level-0 table #254: started
+2020/12/12-12:30:05.143 2178 Level-0 table #254: 157524 bytes OK
+2020/12/12-12:30:05.146 2178 Delete type=0 #251
+2020/12/12-12:30:05.146 208d Compacting 4@0 + 1@1 files
+2020/12/12-12:30:05.154 208d Generated table #255@0: 332 keys, 270424 bytes
+2020/12/12-12:30:05.154 208d Compacted 4@0 + 1@1 files => 270424 bytes
+2020/12/12-12:30:05.157 208d compacted to: files[ 0 1 1 0 0 0 0 ]
+2020/12/12-12:30:05.157 208d Delete type=2 #252
+2020/12/12-12:30:05.157 208d Delete type=2 #245
+2020/12/12-12:30:05.157 208d Delete type=2 #250
+2020/12/12-12:30:05.157 208d Delete type=2 #254
+2020/12/12-12:30:05.157 208d Delete type=2 #247
+2020/12/12-12:50:19.214 31ed Level-0 table #257: started
+2020/12/12-12:50:19.229 31ed Level-0 table #257: 158339 bytes OK
+2020/12/12-12:50:19.233 31ed Delete type=0 #253
+2020/12/12-12:51:03.747 2178 Level-0 table #259: started
+2020/12/12-12:51:03.764 2178 Level-0 table #259: 157507 bytes OK
+2020/12/12-12:51:03.772 2178 Delete type=0 #256
+2020/12/12-12:51:33.708 208d Level-0 table #261: started
+2020/12/12-12:51:33.723 208d Level-0 table #261: 157854 bytes OK
+2020/12/12-12:51:33.728 208d Delete type=0 #258
+2020/12/12-12:52:05.148 31ed Level-0 table #263: started
+2020/12/12-12:52:05.163 31ed Level-0 table #263: 157507 bytes OK
+2020/12/12-12:52:05.167 31ed Delete type=0 #260
+2020/12/12-12:52:05.167 208d Compacting 4@0 + 1@1 files
+2020/12/12-12:52:05.179 208d Generated table #264@0: 343 keys, 270800 bytes
+2020/12/12-12:52:05.179 208d Compacted 4@0 + 1@1 files => 270800 bytes
+2020/12/12-12:52:05.182 208d compacted to: files[ 0 1 1 0 0 0 0 ]
+2020/12/12-12:52:05.182 208d Delete type=2 #263
+2020/12/12-12:52:05.182 208d Delete type=2 #255
+2020/12/12-12:52:05.182 208d Delete type=2 #261
+2020/12/12-12:52:05.182 208d Delete type=2 #259
+2020/12/12-12:52:05.182 208d Delete type=2 #257

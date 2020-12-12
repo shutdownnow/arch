@@ -1,0 +1,15 @@
+2020/12/11-21:12:46.849 cc2 Reusing MANIFEST /home/nobume/.config/chromium/Default/IndexedDB/https_www.bilibili.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/12/11-21:12:46.849 cc2 Recovering log #29
+2020/12/11-21:12:46.849 cc2 Reusing old log /home/nobume/.config/chromium/Default/IndexedDB/https_www.bilibili.com_0.indexeddb.leveldb/000029.log 
+2020/12/11-21:17:42.478 cc2 Level-0 table #34: started
+2020/12/11-21:17:42.488 cc2 Level-0 table #34: 19299 bytes OK
+2020/12/11-21:17:42.492 cc2 Delete type=0 #29
+2020/12/11-21:17:42.493 cc2 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2020/12/11-21:17:42.493 cc2 Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x01\x01\x02\x03\x00\x00\x00\x80\x85|qA' @ 637 : 1
+2020/12/11-21:17:42.493 cc2 Compacting 1@1 + 1@2 files
+2020/12/11-21:17:42.497 cc2 Generated table #35@1: 29 keys, 2942 bytes
+2020/12/11-21:17:42.497 cc2 Compacted 1@1 + 1@2 files => 2942 bytes
+2020/12/11-21:17:42.501 cc2 compacted to: files[ 0 0 1 0 0 0 0 ]
+2020/12/11-21:17:42.502 cc2 Delete type=2 #34
+2020/12/11-21:17:42.502 cc2 Delete type=2 #31
+2020/12/11-21:17:42.502 cc2 Manual compaction at level-1 from '\x00\x01\x01\x02\x03\x00\x00\x00\x80\x85|qA' @ 637 : 1 .. (end); will stop at (end)
