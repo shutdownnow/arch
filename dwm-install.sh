@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pacman -Syu --noconfirm
+pacman -Sy
 pacman -S alacritty
 
 cd ./software/dmenu
