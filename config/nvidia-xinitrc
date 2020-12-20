@@ -14,7 +14,7 @@ xset s off -dpms
 
 fcitx5 &
 while true; do
-	xsetroot -name "$(date +'%F %H:%M:%S %A')"
+	xsetroot -name "power:$(acpi -b | awk '{print $4}') $(date +'%F %H:%M:%S %A')"
 	sleep 1
 done &
 
