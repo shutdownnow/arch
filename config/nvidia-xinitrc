@@ -8,8 +8,12 @@ export XMODIFIERS=@im=fcitx
 
 export FZF_DEFAULT_COMMAND='find . -name "*" -type f'
 
-xrandr --output eDP-1 --mode 1920x1080
-xrandr --output HDMI-1 --same-as eDP-1
+#xrandr --output eDP-1 --mode 1920x1080
+#xrandr --output HDMI-1 --same-as eDP-1
+xrandr --output eDP-1-1 --mode 1600x900 --pos 0x1080 --rotate normal --output HDMI-1-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-1 --off --output HDMI-1-2 --off
+
+#xinput set-prop 19 "Device Enabled" 0
+
 xset s off -dpms
 
 fcitx5 &

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pacman -Sy
-pacman -S alacritty
+pacman -S alacritty rofi acpi --noconfirm
 
 cd ./software/dmenu
 make clean install

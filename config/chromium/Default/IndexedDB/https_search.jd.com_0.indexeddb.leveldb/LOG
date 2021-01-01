@@ -1,5 +1,0 @@
-2020/12/12-12:26:54.559 322 Reusing MANIFEST /home/nobume/.config/chromium/Default/IndexedDB/https_search.jd.com_0.indexeddb.leveldb/MANIFEST-000001
-2020/12/12-12:26:57.446 dc7 Level-0 table #5: started
-2020/12/12-12:26:57.453 dc7 Level-0 table #5: 1165 bytes OK
-2020/12/12-12:26:57.458 dc7 Delete type=0 #3
-2020/12/12-12:26:57.458 dc7 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
