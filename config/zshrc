@@ -14,5 +14,6 @@ alias lla='ls -Al --color=tty'
 alias s='neofetch'
 alias ra='ranger'
 alias pacman='sudo pacman'
+alias win10='sudo grub-reboot 1;reboot'
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

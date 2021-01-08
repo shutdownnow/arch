@@ -17,6 +17,8 @@ xrandr --output eDP-1-1 --mode 1600x900 --pos 0x1080 --rotate normal --output HD
 xset s off -dpms
 
 fcitx5 &
+xcompmgr -c -o.0 &
+~/.fehbg &
 while true; do
 	xsetroot -name "power:$(acpi -b | awk '{print $4}') $(date +'%F %H:%M:%S %A')"
 	sleep 1
