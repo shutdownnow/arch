@@ -5,14 +5,13 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 hwclock --systohc
 
 # 本地化 生成 locale 信息
-echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
-echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen
+echo -e "en_US.UTF-8 UTF-8\nzh_CN.UTF-8 UTF-8" >> /etc/locale.gen
 
 locale-gen
 
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 echo "Arch" >> /etc/hostname
-echo "127.0.0.1\tlocalhost\t::1\tlocalhost\n127.0.1.1\tArch.localdomain\tArch" >> /etc/hosts
+echo -e "127.0.0.1\tlocalhost\n::1\tlocalhost\n127.0.1.1\tArch.localdomain\tArch" >> /etc/hosts
 
 # 安装 grub 并生成配置
 pacman -S grub efibootmgr --noconfirm
