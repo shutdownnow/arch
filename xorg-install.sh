@@ -1,6 +1,6 @@
 #!/bin/bash
 
 pacman -Sy
-pacman -S xorg xorg-server xorg-apps xorg-xinit xorg-xrandr nvidia xf86-video-intel arandr --noconfirm
+pacman -S xorg xorg-xinit nvidia --noconfirm
 
 exit 0
