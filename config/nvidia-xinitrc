@@ -8,17 +8,4 @@ export XMODIFIERS=@im=fcitx5
 
 export FZF_DEFAULT_COMMAND='find . -name "*" -type f'
 
-./.screenlayout/layout.sh &
-
-xset s off -dpms
-
-fcitx5 &
-flameshot &
-xcompmgr -c -o.0 &
-~/.fehbg &
-while true; do
-	xsetroot -name "power:$(acpi -b | awk '{print $4}') $(date +'%F %H:%M:%S %A')"
-	sleep 1
-done &
-
 exec dwm
