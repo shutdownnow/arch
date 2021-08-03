@@ -15,7 +15,8 @@ timedatectl set-ntp true
 # 安装软件包
 pacman -Sy
 pacstrap /mnt base linux linux-firmware \
-    base-devel dhcpcd man-db man-pages
+    base-devel dhcpcd man-db man-pages  \
+    neovim neofetch htop
 
 # 配置 Fstab
 genfstab -U /mnt >> /mnt/etc/fstab

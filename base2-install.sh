@@ -1,5 +1,6 @@
 #!/bin/bash
-
+ln -sf /usr/bin/nvim /usr/bin/vi
+ln -sf /usr/bin/nvim /usr/bin/vim
 # 时间设置
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 hwclock --systohc
@@ -17,7 +18,7 @@ echo -e "127.0.0.1\tlocalhost\n::1\tlocalhost\n127.0.1.1\tArch.localdomain\tArch
 pacman -S grub efibootmgr --noconfirm
 mv /mnt/etc/default/grub /mnt/etc/default/grub_bac
 cp ./config/grub /etc/default/grub
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=Arch
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=ArchLinux
 grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable dhcpcd.service
