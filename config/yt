@@ -1,0 +1,19 @@
+#!/bin/sh
+player="mpv --quiet --geometry=50%:50% --keep-open --fs"
+url="$(echo $1 | awk -F? '{print $1}')"
+echo "url=$url"
+filename="$(youtube-dl --get-filename $url)"
+tmpdir="$HOME/.tmp"
+filepath="$tmpdir/$filename"
+echo "filepath=$filepath"
+youtube-dl -c -o $filepath $url &
+echo $! > $filepath.$$.pid
+
+while [ ! -r $filepath ] && [ ! -r $filepath.part ]; do 
+	echo "Waiting for youtube-dl..."
+	sleep 3
+done
+
+[ -r $filepath.part ] && $player $filepath.part || $player $filepath
+kill $(cat $filepath.$$.pid)
+rm $filepath.$$.pid
