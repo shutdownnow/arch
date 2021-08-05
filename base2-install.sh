@@ -23,6 +23,14 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable dhcpcd.service
 
-# 请使用 passwd 手动修改 root 密码，并重启
+./shell/archlinuxcn-config.sh
+./shell/fonts-install.sh
+./shell/xorg-install.sh
+./shell/zsh-install.sh
+
+chsh -s /usr/bin/zsh
+useradd -m -G wheel -s /usr/bin/zsh nobume
+
+# 请使用 passwd 手动修改 root 和 nobume 密码，并重启
 
 exit 0
