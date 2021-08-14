@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 pacman -Sy
 pacman -S xorg xorg-xinit --noconfirm
