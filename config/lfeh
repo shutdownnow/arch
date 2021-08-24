@@ -1,2 +1,2 @@
 #!/bin/sh
-$HOME/.screenlayout/layout && $HOME/.fehbg
+$HOME/.screenlayout/layout.sh && $HOME/.fehbg
