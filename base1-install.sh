@@ -16,7 +16,7 @@ timedatectl set-ntp true
 pacman -Sy
 pacstrap /mnt base linux linux-firmware \
     base-devel dhcpcd man-db man-pages  \
-    neovim neofetch htop
+    neovim neofetch htop ranger lazygit
 
 # 配置 Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
