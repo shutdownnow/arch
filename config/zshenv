@@ -3,9 +3,4 @@ export GOPATH=$HOME/Workspace/gopath
 export GO111MODULE=on
 export GOPROXY=https://goproxy.cn
 
-# vulkan
-export VULKAN_SDK=$HOME/Workspace/vulkan_sdk/1.2.182.0/x86_64
-export LD_LIBRARY_PATH=$VULKAN_SDK/lib
-export VK_LAYER_PATH=$VULKAN_SDK/etc/vulkan/explicit_layer.d
-
-export PATH=$PATH:$GOPATH/bin:$VULKAN_SDK/bin
+export PATH=$PATH:$GOPATH/bin
