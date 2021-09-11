@@ -3,4 +3,11 @@ export GOPATH=$HOME/Workspace/gopath
 export GO111MODULE=on
 export GOPROXY=https://goproxy.cn
 
-export PATH=$PATH:$GOPATH/bin
+case ":$PATH:" in
+    *:"$GOPATH/bin":*)
+        ;;
+    *)
+        PATH="${PATH:+$PATH:}$GOPATH/bin"
+esac
+
+export PATH
