@@ -6,14 +6,14 @@ filename="$(youtube-dl --get-filename $url)"
 tmpdir="$HOME/.tmp"
 filepath="$tmpdir/$filename"
 echo "filepath=$filepath"
-youtube-dl -c -o $filepath $url &
-echo $! > $filepath.$$.pid
+youtube-dl -c -o "$filepath" $url &
+echo $! > "$filepath".$$.pid
 
-while [ ! -r $filepath ] && [ ! -r $filepath.part ]; do 
+while [ ! -r "$filepath" ] && [ ! -r "$filepath".part ]; do 
 	echo "Waiting for youtube-dl..."
 	sleep 3
 done
 
-[ -r $filepath.part ] && $player $filepath.part || $player $filepath
-kill $(cat $filepath.$$.pid)
-rm $filepath.$$.pid
+[ -r "$filepath".part ] && $player "$filepath".part || $player "$filepath"
+kill $(cat "$filepath".$$.pid)
+rm "$filepath".$$.pid
