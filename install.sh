@@ -2,17 +2,7 @@
 cp ./config/mirrorlist /etc/pacman.d/mirrorlist
 echo "ParallelDownloads = 5" >> /etc/pacman.conf
 timedatectl set-ntp true
-pacstrap /mnt   base base-devel linux linux-firmware dhcpcd iwd \
-                neovim sudo bash-completion git ntfs-3g \
-                adobe-source-han-serif-cn-fonts wqy-zenhei \
-                noto-fonts-cjk noto-fonts-emoji noto-fonts-extra \
-                fcitx5-im fcitx5-chinese-addons \
-                fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki \
-                fcitx5-material-color flameshot xcompmgr arandr \
-                feh acpi alsa-utils pulseaudio pulseaudio-alsa \
-                pulseaudio-bluetooth xorg xorg-xinit mesa \
-                vulkan-intel nvidia nvidia-settings grub \
-                efibootmgr alacritty
+pacstrap /mnt base base-devel linux linux-firmware dhcpcd iwd neovim sudo bash-completion git ntfs-3g adobe-source-han-serif-cn-fonts wqy-zenhei noto-fonts-cjk noto-fonts-emoji noto-fonts-extra fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki fcitx5-material-color flameshot xcompmgr arandr feh acpi alsa-utils pulseaudio pulseaudio-alsa pulseaudio-bluetooth xorg xorg-xinit mesa vulkan-intel nvidia nvidia-settings grub efibootmgr alacritty
 ln -sf /mnt/usr/share/zoneinfo/Asia/Shanghai /mnt/etc/localtime
 ln -sf /mnt/usr/bin/nvim /mnt/usr/bin/vi
 ln -sf /mnt/usr/bin/nvim /mnt/usr/bin/vim
