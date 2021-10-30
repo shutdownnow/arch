@@ -2,7 +2,6 @@ xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 
 $HOME/.screenlayout/layout.sh && $HOME/.fehbg
-/usr/bin/start-pulseaudio-x11
 
 export LANG=zh_CN.UTF-8
 export LANGUAGE=zh_CN:en_US
