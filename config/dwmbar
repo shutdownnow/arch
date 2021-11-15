@@ -1,0 +1,38 @@
+#!/bin/sh
+
+network() {
+    ethn=$1
+    RX_pre=$(cat /proc/net/dev | grep $ethn | sed 's/:/ /g' | awk '{print $2}')
+    TX_pre=$(cat /proc/net/dev | grep $ethn | sed 's/:/ /g' | awk '{print $10}')
+    sleep 1
+    RX_next=$(cat /proc/net/dev | grep $ethn | sed 's/:/ /g' | awk '{print $2}')
+    TX_next=$(cat /proc/net/dev | grep $ethn | sed 's/:/ /g' | awk '{print $10}')
+
+    RX=$((${RX_next}-${RX_pre}))
+    TX=$((${TX_next}-${TX_pre}))
+
+    if [[ $RX -lt 1024 ]];then
+        RX=$(echo $RX | awk '{printf "%0.2fB/s",$1}')
+    elif [[ $RX -gt 1048576 ]];then
+        RX=$(echo $RX | awk '{printf "%0.2fMB/s",$1/1048576}')
+    else
+        RX=$(echo $RX | awk '{printf "%0.2fKB/s",$1/1024}')
+    fi
+
+    if [[ $TX -lt 1024 ]];then
+        TX=$(echo $TX | awk '{printf "%0.2fB/s",$1}')
+    elif [[ $TX -gt 1048576 ]];then
+        TX=$(echo $TX | awk '{printf "%0.2fMB/s",$1/1048576}')
+    else
+        TX=$(echo $TX | awk '{printf "%0.2fKB/s",$1/1024}')
+    fi
+
+    echo -e "$RX $TX"
+}
+
+while true
+do
+    NET=$(network enp8s0)
+    DATE=$(date +'%F %H:%M:%S %A')
+    xsetroot -name "$NET $DATE"
+done
