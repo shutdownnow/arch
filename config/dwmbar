@@ -1,38 +1,84 @@
 #!/bin/sh
+ethn="enp4s0"
+old=""
 
-network() {
-    ethn=$1
-    RX_pre=$(cat /proc/net/dev | grep $ethn | sed 's/:/ /g' | awk '{print $2}')
-    TX_pre=$(cat /proc/net/dev | grep $ethn | sed 's/:/ /g' | awk '{print $10}')
-    sleep 1
-    RX_next=$(cat /proc/net/dev | grep $ethn | sed 's/:/ /g' | awk '{print $2}')
-    TX_next=$(cat /proc/net/dev | grep $ethn | sed 's/:/ /g' | awk '{print $10}')
+print_rx() {
+        echo "$(cat /proc/net/dev | grep $ethn | sed 's/:/ /g' | awk '{print $2}')"
+}
 
-    RX=$((${RX_next}-${RX_pre}))
-    TX=$((${TX_next}-${TX_pre}))
+print_tx() {
+        echo "$(cat /proc/net/dev | grep $ethn | sed 's/:/ /g' | awk '{print $10}')"
+}
 
-    if [[ $RX -lt 1024 ]];then
-        RX=$(echo $RX | awk '{printf "%0.2fB/s",$1}')
-    elif [[ $RX -gt 1048576 ]];then
-        RX=$(echo $RX | awk '{printf "%0.2fMB/s",$1/1048576}')
-    else
-        RX=$(echo $RX | awk '{printf "%0.2fKB/s",$1/1024}')
-    fi
+print_ft() {
+	echo "$(cat /proc/stat | grep "cpu " | awk '{printf "%d", $5+$6}')"
+}
 
-    if [[ $TX -lt 1024 ]];then
-        TX=$(echo $TX | awk '{printf "%0.2fB/s",$1}')
-    elif [[ $TX -gt 1048576 ]];then
-        TX=$(echo $TX | awk '{printf "%0.2fMB/s",$1/1048576}')
-    else
-        TX=$(echo $TX | awk '{printf "%0.2fKB/s",$1/1024}')
-    fi
+print_tt() {
+	echo "$(cat /proc/stat | grep "cpu " | awk '{printf "%d", $2+$3+$4+$5+$7+$8+$9+$11}')"
+}
 
-    echo -e "$RX $TX"
+print_cpu() {
+	free_time_pre=$(echo $old | awk '{print $3}')
+	total_time_pre=$(echo $old | awk '{print $4}')
+
+	new="$(print_ft) $(print_tt)"
+	free_time_next=$(echo $new | awk '{print $1}')
+	total_time_next=$(echo $new | awk '{print $2}')
+
+	cpu=$(echo "scale=2;($free_time_next-$free_time_pre)/($total_time_next-$total_time_pre)" | bc)
+        cpu=$(echo "(1-$cpu)*100" | bc)
+	echo -e "cpu:$cpu%"
+}
+
+print_memory(){
+	memfree=$(($(grep -m1 'MemAvailable:' /proc/meminfo | awk '{print $2}') / 1024))
+	if [[ $memfree -gt 1024 ]];then
+		memfree=$(echo $memfree | awk '{printf "%0.2fG",$1/1024}')
+	else
+		memfree=$(echo "$(memfree)M")
+	fi
+	echo -e "💾:$memfree"
+}
+
+print_network() {
+	RX_pre=$(echo $old | awk '{print $1}')
+	TX_pre=$(echo $old | awk '{print $2}')
+
+	new="$(print_rx) $(print_tx)"
+	old=$new
+	RX_next=$(echo $new | awk '{print $1}')
+	TX_next=$(echo $new | awk '{print $2}')
+
+	RX=$((${RX_next}-${RX_pre}))
+	TX=$((${TX_next}-${TX_pre}))
+
+	if [[ $RX -gt 1048576 ]];then
+		RX=$(echo $RX | awk '{printf "%0.2fMB/s",$1/1048576}')
+	else
+		RX=$(echo $RX | awk '{printf "%0.2fKB/s",$1/1024}')
+	fi
+
+	if [[ $TX -gt 1048576 ]];then
+		TX=$(echo $TX | awk '{printf "%0.2fMB/s",$1/1048576}')
+	else
+		TX=$(echo $TX | awk '{printf "%0.2fKB/s",$1/1024}')
+	fi
+
+	echo -e "\u2b07:$RX\u2b06:$TX"
+}
+
+print_date() {
+	echo -e "\u23f0$(date +'%H:%M')"
 }
 
 while true
 do
-    NET=$(network enp8s0)
-    DATE=$(date +'%F %H:%M:%S %A')
-    xsetroot -name "$NET $DATE"
+	old="$(print_rx) $(print_tx) $(print_ft) $(print_tt)"
+	sleep 1
+	CPU=$(print_cpu)
+	MEM=$(print_memory)
+	NET=$(print_network)
+	DATE=$(print_date)
+	xsetroot -name "$CPU|$MEM|$NET|$DATE"
 done
