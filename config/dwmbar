@@ -27,7 +27,7 @@ print_cpu() {
 	total_time_next=$(echo $new | awk '{print $2}')
 
 	cpu=$(echo "scale=2;($free_time_next-$free_time_pre)/($total_time_next-$total_time_pre)" | bc)
-        cpu=$(echo "(1-$cpu)*100" | bc)
+	cpu=$(echo "(1-$cpu)*100" | bc | awk -F. '{print $1}')
 	echo -e "cpu:$cpu%"
 }
 
