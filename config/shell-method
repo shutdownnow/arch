@@ -1,3 +1,22 @@
+#if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+#    exec startx
+#fi
+
+# go
+export GOPATH=$HOME/Workspace/gopath
+export GO111MODULE=on
+export GOPROXY=https://goproxy.cn
+
+case ":$PATH:" in
+    *:"$GOPATH/bin":*)
+        ;;
+    *)
+        PATH="${PATH:+$PATH:}$GOPATH/bin"
+esac
+
+export PATH
+
+# shrc
 autoload -U compinit promptinit
 compinit
 zstyle ':completion:*' menu select
