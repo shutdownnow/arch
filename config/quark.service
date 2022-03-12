@@ -6,7 +6,7 @@ After=network.target
 StartLimitIntervalSec=0
 
 [Service]
-ExecStart=/usr/local/bin/quark -p 8080 -h 0:0:0:0:0:0:0:0 -u nobume -g wheel -d /data -l
+ExecStart=/usr/local/bin/quark -p 8080 -h 127.0.0.1 -u nobume -g wheel -d /data -l
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
 Restart=always
