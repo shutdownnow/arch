@@ -18,7 +18,7 @@ if [ ! -d "$ST" ]; then
 	exit 1
 fi
 
-sudo pacman -Sy xorg-server xorg-xset xorg-xinit flameshot xcompmgr feh --noconfirm
+sudo pacman -Sy xorg-server xorg-xsetroot xorg-xinit flameshot xcompmgr feh --noconfirm
 sudo cp config/dbar /bin/dbar
 
 build() {
