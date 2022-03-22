@@ -1,6 +1,8 @@
 #!/bin/sh
-ARCH_EFI="$1"
+EFI="$1"
+ln -sf /bin/vim /bin/vi
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+sed "s/#\(Parallel\)/\1/" -i /etc/pacman.conf
 
 hwclock --systohc
 
@@ -38,7 +40,7 @@ EOF
 pacman -Sy grub efibootmgr --noconfirm
 sed "s/TIMEOUT=5/TIMEOUT=0/" -i /etc/default/grub
 sed "s/quiet/quiet nowatchdog/" -i /etc/default/grub
-grub-install --target=x86_64-efi --efi-directory="${ARCH_EFI}" --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory="${EFI}" --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable dhcpcd

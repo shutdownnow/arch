@@ -8,4 +8,4 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 EOF
 fi
 
-sudo pacman -S archlinuxcn-keyring --noconfirm
+sudo pacman -Sy archlinuxcn-keyring --noconfirm

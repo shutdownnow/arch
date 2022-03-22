@@ -1,5 +1,5 @@
 #!/bin/sh
-sudo pacman -Sy mesa xf86-video-amdgpu vulkan-radeon libva-mesa-driver mesa-vdpau --noconfirm
+sudo pacman -Sy mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau --noconfirm
 
 if ! cat < /etc/mkinitcpio.conf | grep -q "^MODULES.*amdgpu.*"; then
 	sudo sed -i "s/^MODULES=(\(.*\))/MODULES=(amdgpu \1)/" /etc/mkinitcpio.conf
